@@ -70,7 +70,6 @@ void Tang_giam_SPEED(void)
 {
 	static uint8_t i;
 	static uint8_t j,k;
-
 	if(SPEED != SPEED_mong_muon){
 		if(++i > Giatoc_tinh_tien){
 			i=0;
@@ -84,8 +83,6 @@ void Tang_giam_SPEED(void)
 			}
 		}
 	}
-	
-	
 	if(xoay != Beta){
 		if(++j > Value_vantoc_goc){
 			j=0;
@@ -98,10 +95,8 @@ void Tang_giam_SPEED(void)
 				if(Beta >= xoay) Beta = xoay;
 			}
 		}
-	
 	}
 	if(xoay == 0 && Beta != 0){
-
 		if(++k > Value_vantoc_goc){
 			k=0;
 			if(Beta < 0){
@@ -117,11 +112,12 @@ void Tang_giam_SPEED(void)
 }
 
 * Bước 4: cho vào 1 timer interrupt mỗi 1ms để update
- 		  if(Lock_Whell == 1)
+
+	if(Lock_Whell == 1){
 		Da_huong_4banh(Huong_tinh_tien, Huong_xoay, Toc_doxoay, SPEED_tinhtien,Enable_rotate_one_spot);
 	}
+	Tang_giam_SPEED();
 
-		Tang_giam_SPEED();
 * Bước 5: uart dma la bàn và gán vào biến value_compass (value_compass=(data[0]<<8|data[1]))
 
 
