@@ -28,7 +28,8 @@ Enable_rotate_one_spot=0;	(ko cho phép quay tại chỗ)
 
 * Bước 1: include control4omnix.h
 * Bước 2: viết vào hàm main()
-  MotorA.K = 30;
+```
+  	MotorA.K = 30;
 	MotorB.K = 30;
 	MotorC.K = 30;
 	MotorD.K = 30;
@@ -37,8 +38,9 @@ Enable_rotate_one_spot=0;	(ko cho phép quay tại chỗ)
 	MotorB.Offset = 0;
 	MotorC.Offset = 0;
 	MotorD.Offset = 0;
+```
 * Bước 3: extern các biến sang file stm32f1xx_it.c để tính toán cập nhật tốc độ và hướng các bánh xe
-
+```
 extern int16_t SPEED;
 extern int16_t SPEED_mong_muon;
 extern int16_t xoay;
@@ -71,7 +73,6 @@ void Tang_giam_SPEED(void)
 {
 	static uint8_t i;
 	static uint8_t j,k;
-
 	if(SPEED != SPEED_mong_muon){
 		if(++i > Giatoc_tinh_tien){
 			i=0;
@@ -112,15 +113,17 @@ void Tang_giam_SPEED(void)
 		}
 	}
 }
-
+```
 * Bước 4: cho vào 1 timer interrupt mỗi 1ms để update
-
+```
 	if(Lock_Whell == 1){
 		Da_huong_4banh(Huong_tinh_tien, Huong_xoay, Toc_doxoay, SPEED_tinhtien,Enable_rotate_one_spot);
 	}
 	Tang_giam_SPEED();
-
-* Bước 5: uart dma la bàn và gán vào biến value_compass (value_compass=(data[0]<<8|data[1]))
-
+```
+* Bước 5: uart dma la bàn và gán vào biến value_compass
+```
+ (value_compass=(data[0]<<8|data[1]))
+```
 
 
