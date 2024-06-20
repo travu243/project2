@@ -38,6 +38,7 @@ Enable_rotate_one_spot=0;	(ko cho phép quay tại chỗ)
 	MotorC.Offset = 0;
 	MotorD.Offset = 0;
 * Bước 3: extern các biến sang file stm32f1xx_it.c để tính toán cập nhật tốc độ và hướng các bánh xe
+
 extern int16_t SPEED;
 extern int16_t SPEED_mong_muon;
 extern int16_t xoay;
@@ -70,6 +71,7 @@ void Tang_giam_SPEED(void)
 {
 	static uint8_t i;
 	static uint8_t j,k;
+
 	if(SPEED != SPEED_mong_muon){
 		if(++i > Giatoc_tinh_tien){
 			i=0;
