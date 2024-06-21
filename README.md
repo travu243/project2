@@ -4,6 +4,8 @@ project sử dụng stm32f4 discovery
 * file control4omniX.h
 file thư viện sử dụng cho stm32f103c8
 
+![image](https://hackmd.io/_uploads/S1rfeJ7IA.png)
+
 # Cách sử dụng
 
 hàm Da_huong_4banh() có 5 tham số:
